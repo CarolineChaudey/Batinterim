@@ -1,0 +1,4 @@
+services:
+#    cc_bati.example:
+#        class: cc\BatiBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
