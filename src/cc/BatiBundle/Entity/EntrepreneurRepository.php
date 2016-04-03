@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class EntrepreneurRepository extends EntityRepository
 {
+    
+    public function chercherEntrepreneur($login, $mdp){
+        $qb = $this->createQueryBuilder('e');
+        $qb->where('e.login = :login')
+                ->setParameter('login', $login)
+                ->andWhere('e.mdp = :mdp')
+                ->setParameter('mdp', $mdp);
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    
 }

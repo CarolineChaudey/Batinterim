@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChefChantierRepository extends EntityRepository
 {
+    
+    public function chercherChef($login, $mdp){
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.login = :login')
+                ->setParameter('login', $login)
+                ->andWhere('c.mdp = :mdp')
+                ->setParameter('mdp', $mdp);
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    
 }

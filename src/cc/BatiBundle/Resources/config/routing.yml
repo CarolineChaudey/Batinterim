@@ -1,3 +1,4 @@
-cc_bati_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ccBatiBundle:Default:index }
+
+connexion:
+    path:    /
+    defaults:  {_controller: ccBatiBundle:Default:index}

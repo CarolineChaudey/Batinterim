@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArtisanRepository extends EntityRepository
 {
+    
+    public function chercherArtisan($login, $mdp){
+        $qb = $this->createQueryBuilder('a');
+        $qb->where('a.login = :login')
+                ->setParameter('login', $login)
+                ->andWhere('a.mdp = :mdp')
+                ->setParameter('mdp', $mdp);
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    
 }

@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class GestionnaireRepository extends EntityRepository
 {
+    
+    public function chercherGestionnaire($login, $mdp){
+        $qb = $this->createQueryBuilder('g');
+        $qb->where('g.login = :login')
+                ->setParameter('login', $login)
+                ->andWhere('g.mdp = :mdp')
+                ->setParameter('mdp', $mdp);
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    
 }
