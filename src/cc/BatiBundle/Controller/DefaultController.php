@@ -20,7 +20,6 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         
         if($form->isValid()){
-            //return new Response("test");
             
             $login = $form["login"]->getData();
             $mdp = $form["mdp"]->getData();
@@ -34,7 +33,7 @@ class DefaultController extends Controller
             $user = $repoG->chercherGestionnaire($login, $mdp);
             if($user !== null){
                 $request->getSession()->set('user', $user);
-                return new Response("ok");
+                return $this->redirectToRoute('accueilGest');
             }
             $user = $repoC->chercherChef($login, $mdp);
             if($user !== null){
@@ -47,7 +46,6 @@ class DefaultController extends Controller
                 return new Response("ok");
             }
             else{
-                //return new Response("nok");
                 $this->addFlash('error', 'Utilisateur inconnu.');
                 return $this->redirectToRoute('connexion');
             }

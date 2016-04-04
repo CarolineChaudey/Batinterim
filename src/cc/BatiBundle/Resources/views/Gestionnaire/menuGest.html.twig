@@ -1,0 +1,22 @@
+
+{% extends "ccBatiBundle:Default:index.html.twig" %}
+
+{% block title %}
+    BI Gestionnaire
+{% endblock %}
+
+{% block body %}
+    
+    <nav>
+        <ul>
+            <li><a href="{{ url('creerArtisan') }}">Créer Artisan</a></li>
+            <li><a href="{{ url('creerChef') }}">Créer Chef de chantier</a></li>
+            <li><a href="{{ url('voirProfils') }}">Profils</a></li>
+        </ul>
+    </nav>
+    
+    {% block contenu %}
+        <h2> Bienvenue Gestionnaire </h2>
+    {% endblock %}
+    
+{% endblock %}

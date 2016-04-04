@@ -2,3 +2,19 @@
 connexion:
     path:    /
     defaults:  {_controller: ccBatiBundle:Default:index}
+
+accueilGest:
+    path:    /gest
+    defaults:  {_controller: ccBatiBundle:BatiInterimArtisan:index}
+
+creerArtisan:
+    path:    /gest/creer-artisan
+    defaults:  {_controller: ccBatiBundle:BatiInterimArtisan:creerArtisan}
+
+creerChef:
+    path:    /gest/creer-chef
+    defaults:  {_controller: ccBatiBundle:BatiInterimArtisan:creerChef}
+
+voirProfils:
+    path:    /gest/profils
+    defaults:  {_controller: ccBatiBundle:BatiInterimArtisan:voirProfils}
