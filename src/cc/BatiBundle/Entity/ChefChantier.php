@@ -48,7 +48,7 @@ class ChefChantier
     private $login;
     
     /**
-     * @ORM\Column(name="mdp", type="string", length=30)
+     * @ORM\Column(name="mdp", type="string", length=30, nullable=true)
      */
     private $mdp;
 

@@ -1,0 +1,46 @@
+
+{% extends "ccBatiBundle:Gestionnaire:menuGest.html.twig" %}
+
+{% block title %} Consulter les profils {% endblock %}
+
+{% block contenu %}
+    
+    <section id="profilsArtisans">
+        
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Affectation</th>
+                <th>Login</th>
+                <th>Métier</th>
+                <th>Détails/Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+            {% for artisan in lesArtisans %}
+                <tr>
+                    <td>{{ artisan.id }}</td>
+                    <td>{{ artisan.nom }}</td>
+                    <td>{{ artisan.prenom }}</td>
+                    <td>{{ artisan.telephone }}</td>
+                    <td>{{ artisan.adresse }}</td>
+                    <td>{{ artisan.affectation }}</td>
+                    <td>{{ artisan.login }}</td>
+                    <td>{{ artisan.metier }}</td>
+                    <td> <a href="{{ path('modifierArtisan', {'id' : artisan.id}) }}"></a> </td>
+                    <td>  <a href="{{ path('supprimerArtisan', {'id' : artisan.id}) }}"></a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+    </section>
+    <section id="profilsChefs">
+        
+        
+        
+    </section>
+    
+{% endblock %}

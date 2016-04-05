@@ -18,3 +18,12 @@ creerChef:
 voirProfils:
     path:    /gest/profils
     defaults:  {_controller: ccBatiBundle:BatiInterimArtisan:voirProfils}
+    
+modifierArtisan:
+    path:    /gest/modifier-artisan/{id}
+    defaults:  {_controller: ccBatiBundle:BatiInterim:modifierArtisan}
+    
+    
+supprimerArtisan:
+    path:   /gest/suppr-artisan/{id}
+    defaults:  {_controller: ccBatiBundle:BatiInterim:supprimerArtisan}
