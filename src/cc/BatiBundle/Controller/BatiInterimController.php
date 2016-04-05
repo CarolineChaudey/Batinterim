@@ -1,12 +1,9 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 namespace cc\BatiBundle\Controller;
+
+use cc\BatiBundle\Entity\Artisan;
 
 /**
  * Description of BatiInterimController
@@ -15,4 +12,22 @@ namespace cc\BatiBundle\Controller;
  */
 class BatiInterimController {
     //put your code here
+    
+    public function modifierArtisanAction($idArtisan){
+        $em = $this->getDoctrine()->getManager();
+        $artisan = $em->getRepository('ccBatiBundle:Artisan')->findById($idArtisan);
+        $formArtisan = $this->getForm('ccBatiBundle:Artisan', $artisan);
+        
+        // on "rend" le formulaire dans une vue twig
+    }
+    
+    public function supprimerArtisan($idArtisan){
+        $em = $this->getDoctrine()->getManager();
+        $artisan = $em->getRepository('ccBatiBundle:Artisan')->findById($idArtisan);
+        $em->remove($artisan);
+        $em->flush();
+        
+        return $this->render('ccBatiBundle:Gestionnaire:listeProfils.html.twig');
+    }
+    
 }
